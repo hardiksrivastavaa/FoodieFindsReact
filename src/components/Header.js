@@ -1,6 +1,3 @@
-// import { LOGO_URL } from "../../utils/contstants";
-
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -9,14 +6,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg bg-white">
                 <div className="container-fluid">
                     <Link className="navbar-brand d-flex align-items-center" to="/">
-                        {/* <img
-                            src={LOGO_URL}
-                            alt="Logo"
-                            className="img-fluid"
-                            style={{ maxHeight: "50px", objectFit: "contain" }}
-                        /> */}
                         <p className="text-danger my-auto fs-1 fw-semibold mx-3">FoodieFinds</p>
-
                     </Link>
 
                     <button

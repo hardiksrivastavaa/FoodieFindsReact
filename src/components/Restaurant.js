@@ -7,7 +7,7 @@ const Restaurant = () => {
     const restaurant = useRestaurant();
 
     if (restaurant === null) {
-        return <Shimmer />;
+        return <Shimmer len={1} />;
     }
 
     const {

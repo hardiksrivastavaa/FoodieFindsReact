@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import {
     createBrowserRouter,
@@ -11,6 +11,8 @@ import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import Main from "./components/Main";
 import Restaurant from "./components/Restaurant";
+// Lazy loading the Order component to improve performance
+// This will split the code into separate chunks, loading Order only when needed
 const Order = lazy(() => import("./components/Order"));
 
 const appRouter = createBrowserRouter([

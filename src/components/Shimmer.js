@@ -1,12 +1,11 @@
 import Skeleton from "react-loading-skeleton";
-import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const Shimmer = () => {
+const Shimmer = ({len = 8}) => {
     return (
         <div className="container my-5 shimmer-container">
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                {Array.from({ length: 8 }).map((_, index) => (
+                {Array.from({ length: len }).map((_, index) => (
                     <div className="col d-flex" key={index}>
                         <div className="card p-2 rounded-4 shadow-sm shimmer-card w-100 h-100 d-flex flex-column">
                             <Skeleton height={200} className="rounded-4" />
@@ -26,3 +25,4 @@ const Shimmer = () => {
 };
 
 export default Shimmer;
+

@@ -1,4 +1,3 @@
-import React from "react";
 import useDeveloper from "../../utils/useDeveloper";
 
 const Dev = () => {

@@ -1,7 +1,7 @@
 import useOnlineStatus from "../../utils/useOnlineStatus.js";
 import RestaurantCard from "./RestaurantCard.js";
 import Shimmer from "./Shimmer.js";
-import { React, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const Main = () => {
