@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { RESTAURANT_URL } from "./contstants";
 
 const useRestaurant = () => {
     const [resInfo, setResInfo] = useState(null);
@@ -7,7 +8,7 @@ const useRestaurant = () => {
 
     useEffect(() => {
         if (city && restaurant) {
-            const apiUrl = `https://www.zomato.com/webroutes/getPage?page_url=/${city}/${restaurant}`;
+            const apiUrl = `${RESTAURANT_URL}/${city}/${restaurant}`;
             fetchRestaurant(apiUrl);
         }
     }, [city, restaurant]);

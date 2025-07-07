@@ -1,10 +1,13 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Shimmer from "../layouts/Shimmer.js";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 import useRestaurant from "../../../utils/useRestaurant.js";
 
 const RestaurantCard = () => {
     const restaurant = useRestaurant();
+    const { city } = useParams();
 
     if (restaurant === null) {
         return <Shimmer len={1} />;
@@ -72,7 +75,7 @@ const RestaurantCard = () => {
             </div>
 
             <div className="text-center mt-4">
-                <Link to="/">
+                <Link to={`/restaurants/${city}`}>
                     <button className="btn btn-outline-danger px-4 py-2 rounded-pill">
                         <i className="bi bi-arrow-left-circle me-2"></i>Back to Home
                     </button>
