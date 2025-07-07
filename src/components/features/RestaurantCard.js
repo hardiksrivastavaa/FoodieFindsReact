@@ -1,9 +1,9 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Shimmer from "./Shimmer.js";
+import Shimmer from "../layouts/Shimmer.js";
 import { Link } from "react-router-dom";
-import useRestaurant from "../../utils/useRestaurant.js";
+import useRestaurant from "../../../utils/useRestaurant.js";
 
-const Restaurant = () => {
+const RestaurantCard = () => {
     const restaurant = useRestaurant();
 
     if (restaurant === null) {
@@ -62,8 +62,8 @@ const Restaurant = () => {
 
                     <span
                         className={`badge fs-6 px-3 py-2 rounded-pill ${resOpenStatus.toLowerCase().includes("open")
-                                ? "bg-success"
-                                : "bg-danger"
+                            ? "bg-success"
+                            : "bg-danger"
                             }`}
                     >
                         {resOpenStatus}
@@ -82,4 +82,4 @@ const Restaurant = () => {
     );
 };
 
-export default Restaurant;
+export default RestaurantCard;

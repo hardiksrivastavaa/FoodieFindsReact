@@ -1,7 +1,7 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 
-const RestaurantCard = (props) => {
+const RestaurantsCard = (props) => {
     const { restaurantsData } = props;
     const { resPath, name, locality, avgRating, img } = restaurantsData;
 
@@ -51,4 +51,4 @@ const RestaurantCard = (props) => {
     );
 };
 
-export default RestaurantCard;
+export default RestaurantsCard;

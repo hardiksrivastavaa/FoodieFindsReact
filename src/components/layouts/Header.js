@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
+
         <header className="border-bottom shadow-sm">
             <nav className="navbar navbar-expand-lg bg-white">
                 <div className="container-fluid">
@@ -30,19 +31,20 @@ const Header = () => {
                                 <Link className="nav-link" to="/order">Order</Link>
                             </li>
                             <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/">Restaurant</Link>
-                            </li>
-                            <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/contact">Contact Us</Link>
                             </li>
                             <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/about">About Us</Link>
+                            </li>
+                            <li className="nav-item mx-2">
+                                <Link className="nav-link" to="/about">Login</Link>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
+        
     );
 };
 

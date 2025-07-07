@@ -1,4 +1,4 @@
-import Dev from "./Dev";
+import Developer from "./Developer";
 
 const ContactUs = () => {
   return (
@@ -8,25 +8,14 @@ const ContactUs = () => {
         Have questions, feedback, or just want to say hi? We're here to help you
         discover the best places to eat!
       </p>
-      <div className="mt-4">
-        <p className="mb-1">
-          <strong>Email:</strong> support@foodiefinds.com
-        </p>
-        <p className="mb-1">
-          <strong>Phone:</strong> +91-9876543210
-        </p>
-        <p>
-          <strong>Location:</strong> Raebareli, India
-        </p>
-      </div>
       <a
         href="mailto:hardikfgp@gmail.com"
-        className="btn btn-outline-danger mt-3"
+        className="btn btn-outline-danger mt-2 mb-2"
       >
         Drop us an Email
       </a>
 
-      <Dev />
+      <Developer />
     </div>
   );
 };

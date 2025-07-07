@@ -1,13 +1,13 @@
-import useDeveloper from "../../utils/useDeveloper";
+import useDeveloper from "../../../utils/useDeveloper";
 
-const Dev = () => {
+const Developer = () => {
     const developer = useDeveloper();
-    const {name, bio, avatar_url, location} = developer;
+    const { name, bio, avatar_url, location } = developer;
 
     return (
         <>
             <div className="card shadow-sm border-1 border-dark rounded-4 overflow-hidden m-3">
-                
+
                 <img
                     src={avatar_url}
                     alt={name}
@@ -39,4 +39,4 @@ const Dev = () => {
     );
 };
 
-export default Dev;
+export default Developer;
