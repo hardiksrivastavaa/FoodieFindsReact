@@ -6,7 +6,7 @@ import useOnlineStatus from "../../../utils/useOnlineStatus.js";
 import Restaurants from "./RestaurantsCard.js";
 import Shimmer from "../layouts/Shimmer.js";
 
-const Main = () => {
+const Body = () => {
 
   const { restaurants, errorMsg, setErrorMsg } = useRestaurants();
   const onlineStatus = useOnlineStatus();
@@ -26,14 +26,8 @@ const Main = () => {
     }
   }, [restaurants]);
 
-  console.log("filtered Restaurants Data:", filteredRestaurants);
-  console.log("Restaurants Data:", restaurants);
-  console.log("Input City:", inputCity);
-  console.log("Input Restaurant:", inputRestaurant);
-  console.log("Is Top Rated:", istopRated);
-
-
   const topRatedRestaurants = () => {
+    setErrorMsg("");
     if (!istopRated) {
       const topRated = restaurants.filter(
         (restaurant) => restaurant.avgRating >= 4.5
@@ -129,7 +123,7 @@ const Main = () => {
         </div>
 
         {/* Error Message */}
-        {errorMsg && (<div className="alert alert-danger text-center fw-bold fs-5" role="alert">{errorMsg}</div>)}
+        {errorMsg && (<div className="alert alert-danger alert-dismissible fade show" role="alert">{errorMsg}</div>)}
 
         {/* Restaurant Grid */}
         <div id="restaurant-container" className="row g-4 align-items-stretch">
@@ -147,4 +141,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Body;

@@ -20,7 +20,6 @@ const useRestaurants = () => {
                 .trim()}/trending-this-week&location=&isMobile=1`;
 
             const response = await fetch(url);
-
             if (!response.ok) {
                 throw new Error("City not found");
             }

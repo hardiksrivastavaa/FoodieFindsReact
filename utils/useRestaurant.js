@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RESTAURANT_URL } from "./contstants";
 
+
 const useRestaurant = () => {
     const [resInfo, setResInfo] = useState(null);
     const { city, restaurant } = useParams();
@@ -27,6 +28,7 @@ const useRestaurant = () => {
                 res_thumb,
                 timing,
             } = json?.page_data?.sections?.SECTION_BASIC_INFO;
+            
             const { address, phoneDetails, zipcode } =
                 json?.page_data?.sections?.SECTION_RES_CONTACT;
 

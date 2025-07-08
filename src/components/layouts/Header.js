@@ -1,6 +1,32 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 
 const Header = () => {
+
+
+    const { city } = useParams();
+
+    useEffect(() => {
+    const navLinks = document.querySelectorAll(".nav-link");
+    const bsCollapse = document.querySelector("#navbarNav");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (bsCollapse.classList.contains("show")) {
+          // Collapse the navbar
+          new window.bootstrap.Collapse(bsCollapse, { toggle: true });
+        }
+      });
+    });
+
+    // Cleanup
+    return () => {
+      navLinks.forEach((link) => {
+        link.removeEventListener("click", () => {});
+      });
+    };
+  }, []);
+
     return (
 
         <header className="border-bottom shadow-sm">
@@ -25,7 +51,7 @@ const Header = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
                             <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/">Home</Link>
+                                <Link className="nav-link" to={city ? `/restaurants/${city}` : `/`}>Home</Link>
                             </li>
                             <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/order">Order</Link>

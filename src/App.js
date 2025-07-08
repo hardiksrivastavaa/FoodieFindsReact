@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-rou
 import AboutUs from "./components/pages/About";
 import ContactUs from "./components/pages/Contact";
 import Error from "./components/layouts/Error";
-import Main from "./components/features/Body";
+import Body from "./components/features/Body";
 import Restaurant from "./components/features/RestaurantCard";
 import Header from "./components/layouts/Header";
 import Footer from "./components/layouts/Footer";
@@ -33,7 +33,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/restaurants/:city",
-                element: <Main />,
+                element: <Body />,
             },
             {
                 path: "/restaurants/:city/:restaurant",
