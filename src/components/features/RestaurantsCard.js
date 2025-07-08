@@ -51,4 +51,22 @@ const RestaurantsCard = (props) => {
     );
 };
 
+export const withOfferValue = (RestaurantsCard) => {
+    return (props) => {
+        const { restaurantsData } = props;
+        const { offerValue } = restaurantsData;
+
+        return (
+            <div className="position-relative">
+                <RestaurantsCard {...props} />
+                {offerValue && (
+                    <span className="badge bg-success position-absolute top-0 end-0 m-2 p-2">
+                        {offerValue}
+                    </span>
+                )}
+            </div>
+        );
+    };
+}
+
 export default RestaurantsCard;

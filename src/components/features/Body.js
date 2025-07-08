@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import useRestaurants from "../../../utils/useRestaurants.js";
 import useOnlineStatus from "../../../utils/useOnlineStatus.js";
-import Restaurants from "./RestaurantsCard.js";
+import Restaurants, { withOfferValue } from "./RestaurantsCard.js";
 import Shimmer from "../layouts/Shimmer.js";
 
 const Body = () => {
@@ -18,6 +18,7 @@ const Body = () => {
   let [inputCity, setInputCity] = useState("");
   let [loading, setLoading] = useState(true);
 
+  const RestaurantCardWithOfferValue = withOfferValue(Restaurants);
 
   useEffect(() => {
     if (restaurants && restaurants.length > 0) {
@@ -129,7 +130,11 @@ const Body = () => {
         <div id="restaurant-container" className="row g-4 align-items-stretch">
           {filteredRestaurants.map((restaurant, index) => (
             <div className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" key={index}>
-              <Restaurants restaurantsData={restaurant} />
+              {restaurant.offerValue ? (
+                <RestaurantCardWithOfferValue restaurantsData={restaurant} />
+              ) : (
+                <Restaurants restaurantsData={restaurant} />
+              )}
             </div>
           ))}
         </div>

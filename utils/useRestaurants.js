@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { PROXY_URL } from "./contstants";
 
 const useRestaurants = () => {
 
@@ -15,7 +16,7 @@ const useRestaurants = () => {
 
     const fetchRestaurants = async () => {
         try {
-            const url = `https://www.zomato.com/webroutes/getPage?page_url=/${city
+            const url = `${PROXY_URL}https://www.zomato.com/webroutes/getPage?page_url=/${city
                 .toLowerCase()
                 .trim()}/trending-this-week&location=&isMobile=1`;
 
@@ -38,6 +39,7 @@ const useRestaurants = () => {
                 fetchedRestaurants.push({
                     resPath: pathname,
                     name: info?.name,
+                    offerValue: info?.proOfferText,
                     locality: info?.subtitleData?.locality?.text,
                     avgRating: info?.rating?.aggregate_rating,
                     img: info?.imageUrl,
