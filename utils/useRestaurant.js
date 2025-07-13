@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { PROXY_URL, RESTAURANT_URL } from "./contstants";
+import { RESTAURANT_URL } from "./contstants";
 
 
 const useRestaurant = () => {
@@ -9,7 +9,7 @@ const useRestaurant = () => {
 
     useEffect(() => {
         if (city && restaurant) {
-            const apiUrl = `${PROXY_URL}${RESTAURANT_URL}/${city}/${restaurant}`;
+            const apiUrl = `${RESTAURANT_URL}/${city}/${restaurant}`;
             fetchRestaurant(apiUrl);
         }
     }, [city, restaurant]);

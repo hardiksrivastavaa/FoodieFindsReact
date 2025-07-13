@@ -1,31 +1,32 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
+import UserContext from "../../../utils/UserContext";
 
 const Header = () => {
 
-
     const { city } = useParams();
+    const { loggedInUser } = useContext(UserContext);
 
     useEffect(() => {
-    const navLinks = document.querySelectorAll(".nav-link");
-    const bsCollapse = document.querySelector("#navbarNav");
+        const navLinks = document.querySelectorAll(".nav-link");
+        const bsCollapse = document.querySelector("#navbarNav");
 
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        if (bsCollapse.classList.contains("show")) {
-          // Collapse the navbar
-          new window.bootstrap.Collapse(bsCollapse, { toggle: true });
-        }
-      });
-    });
+        navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                if (bsCollapse.classList.contains("show")) {
+                    // Collapse the navbar
+                    new window.bootstrap.Collapse(bsCollapse, { toggle: true });
+                }
+            });
+        });
 
-    // Cleanup
-    return () => {
-      navLinks.forEach((link) => {
-        link.removeEventListener("click", () => {});
-      });
-    };
-  }, []);
+        // Cleanup
+        return () => {
+            navLinks.forEach((link) => {
+                link.removeEventListener("click", () => { });
+            });
+        };
+    }, []);
 
     return (
 
@@ -62,15 +63,18 @@ const Header = () => {
                             <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/about">About Us</Link>
                             </li>
-                            <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/about">Login</Link>
+                            <li className="nav-item mx-2 fw-bold">
+                                <Link className="nav-link" to="/login">
+                                    <i className="bi bi-person-fill me-2"></i>
+                                    {loggedInUser}
+                                </Link>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-        
+
     );
 };
 

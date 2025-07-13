@@ -2,7 +2,6 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Shimmer from "../layouts/Shimmer.js";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-
 import useRestaurant from "../../../utils/useRestaurant.js";
 
 const RestaurantCard = () => {
@@ -12,6 +11,7 @@ const RestaurantCard = () => {
     if (restaurant === null) {
         return <Shimmer len={1} />;
     }
+
 
     const {
         resImg,

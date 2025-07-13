@@ -1,7 +1,13 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
+import UserContext from "../../../utils/UserContext";
+import { useContext } from "react";
 
 const RestaurantsCard = (props) => {
+
+    const { loggedInUser } = useContext(UserContext);
+
+
     const { restaurantsData } = props;
     const { resPath, name, locality, avgRating, img } = restaurantsData;
 
@@ -46,6 +52,11 @@ const RestaurantsCard = (props) => {
                         View more
                     </Link>
                 </p>
+                <p className="card-text text-muted mb-1 mt-2">
+                    <i className="bi bi-person-fill me-1 text-success"></i>
+                    {loggedInUser}
+                </p>
+
             </div>
         </div>
     );
