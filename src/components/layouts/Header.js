@@ -55,7 +55,7 @@ const Header = () => {
                                 <Link className="nav-link" to={city ? `/restaurants/${city}` : `/`}>Home</Link>
                             </li>
                             <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/order">Order</Link>
+                                <Link className="nav-link" to="/cart">Cart</Link>
                             </li>
                             <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/contact">Contact Us</Link>

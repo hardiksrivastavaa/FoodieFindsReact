@@ -12,7 +12,7 @@ const User = () => {
 <div className="container mt-5">
   <div className="row justify-content-center">
     <div className="col-md-6">
-      <div className="p-4 shadow-sm rounded">
+      <div className="p-4 shadow-lg rounded">
         <input
           type="text"
           className="form-control mb-3"

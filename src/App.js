@@ -1,44 +1,43 @@
+import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-router-dom";
 import { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-import {
-    createBrowserRouter,
-    RouterProvider,
-    Navigate,
-    Outlet,
-} from "react-router-dom";
+import { Provider } from "react-redux";
 
 import AboutUs from "./components/pages/About";
-import ContactUs from "./components/pages/Contact";
 import Error from "./components/layouts/Error";
-import Body from "./components/features/Body";
-import Restaurant from "./components/features/RestaurantCard";
 import Header from "./components/layouts/Header";
 import Footer from "./components/layouts/Footer";
+import Loading from "./components/layouts/Loading";
 import User from "./components/pages/User";
 import UserContext from "../utils/UserContext";
+import appStore from "../utils/AppStore";
 
-// Lazy loading the Order component to improve performance
-const Order = lazy(() => import("./components/pages/Order"));
-// This will split the code into separate chunks, loading Order only when needed
+// Lazy loading the Cart component to improve performance
+const Cart = lazy(() => import("./components/pages/Cart"));
+const Contact = lazy(() => import("./components/pages/Contact"));
+const Body = lazy(() => import("./components/features/Body"));
+const Restaurant = lazy(() => import("./components/features/RestaurantCard"));
+// This will split the code into separate chunks, loading Cart only when needed
 
 const AppLayout = () => {
     const [userName, setUserName] = useState();
 
     useEffect(() => {
         const data = {
-            name: "John Doe",
+            name: "Hardik Srivastava",
         };
-
         setUserName(data.name);
     }, []);
 
     return (
         <>
-            <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+            {/* <Provider store={appStore}> */}
+            <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
                 <Header />
                 <Outlet />
                 <Footer />
             </UserContext.Provider>
+            {/* </Provider> */}
         </>
     );
 };
@@ -54,17 +53,25 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/restaurants/:city",
-                element: <Body />,
+                element: (
+                    <Suspense fallback={<Loading />}>
+                        <Body />
+                    </Suspense>
+                ),
             },
             {
                 path: "/restaurants/:city/:restaurant",
-                element: <Restaurant />,
+                element: (
+                    <Suspense fallback={<Loading />}>
+                        <Restaurant />
+                    </Suspense>
+                ),
             },
             {
-                path: "/order",
+                path: "/cart",
                 element: (
-                    <Suspense fallback={<h1>Loading........</h1>}>
-                        <Order />
+                    <Suspense fallback={<Loading />}>
+                        <Cart />
                     </Suspense>
                 ),
             },
@@ -74,7 +81,11 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/contact",
-                element: <ContactUs />,
+                element: (
+                    <Suspense fallback={<Loading />}>
+                        <Contact />
+                    </Suspense>
+                ),
             },
             {
                 path: "/login",

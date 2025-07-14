@@ -3,20 +3,10 @@ import { Link } from "react-router-dom";
 import UserContext from "../../../utils/UserContext";
 import { useContext } from "react";
 
-const RestaurantsCard = (props) => {
+const RestaurantsCard = ({ restaurantsData }) => {
 
     const { loggedInUser } = useContext(UserContext);
-
-
-    const { restaurantsData } = props;
     const { resPath, name, locality, avgRating, img } = restaurantsData;
-
-    function capitalizeEachWord(sentence) {
-        return sentence
-            .split(" ")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-            .join(" ");
-    }
 
     return (
         <div
@@ -25,14 +15,14 @@ const RestaurantsCard = (props) => {
         >
             <img
                 src={img}
-                alt={capitalizeEachWord(name)}
+                alt={name}
                 className="card-img-top img-fluid"
                 style={{ height: "200px", objectFit: "cover" }}
             />
             <div className="card-body d-flex flex-column justify-content-between flex-grow-1">
                 <div>
-                    <h5 className="card-title fw-bold text-dark">
-                        {capitalizeEachWord(name)}
+                    <h5 className="card-title fw-bold text-dark text-capitalize" >
+                        {name}
                     </h5>
                     <p className="card-text text-muted mb-1">
                         <i className="bi bi-geo-alt-fill me-1 text-danger"></i>
