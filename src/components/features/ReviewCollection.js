@@ -1,4 +1,4 @@
-import useReview from "../../../utils/useReview";
+import useReview from "../../../utils/hooks/useReview";
 import Shimmer from "../layouts/Shimmer";
 
 const ReviewsCollection = () => {

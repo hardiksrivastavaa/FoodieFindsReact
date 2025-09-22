@@ -1,4 +1,4 @@
-import useDeveloper from "../../../utils/useDeveloper";
+import useDeveloper from "../../../utils/hooks/useDeveloper";
 
 const Developer = () => {
     const developer = useDeveloper();

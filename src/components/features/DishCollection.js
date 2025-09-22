@@ -1,4 +1,4 @@
-import { dishes } from "../../../utils/dishes";
+import { dishes } from "../../../utils//data/dishes";
 
 const DishesCollection = () => (
   <div className="container my-2">

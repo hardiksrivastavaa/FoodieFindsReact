@@ -2,7 +2,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Shimmer from "../layouts/Shimmer.js";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import useRestaurant from "../../../utils/useRestaurant.js";
+import useRestaurant from "../../../utils/hooks/useRestaurant.js";
 import ReviewsCollection from "./ReviewCollection.js";
 import DishesCollection from "./DishCollection.js";
 

@@ -1,6 +1,6 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
-import UserContext from "../../../utils/UserContext";
+import UserContext from "../../../utils/contexts/UserContext";
 import { useContext } from "react";
 
 const RestaurantsCard = ({ restaurantsData }) => {

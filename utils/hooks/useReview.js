@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { RESTAURANT_URL } from "./contstants";
+import { RESTAURANT_URL } from "../data/constants";
 
 const useReview = () => {
     const [reviews, setReviews] = useState(null);

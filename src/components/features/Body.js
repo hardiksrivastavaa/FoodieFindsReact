@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import useRestaurants from "../../../utils/useRestaurants.js";
-import useOnlineStatus from "../../../utils/useOnlineStatus.js";
+import useRestaurants from "../../../utils/hooks/useRestaurants.js";
+import useOnlineStatus from "../../../utils/hooks/useOnlineStatus.js";
 import Restaurants, { withOfferValue } from "./RestaurantsCard.js";
 import Shimmer from "../layouts/Shimmer.js";
 

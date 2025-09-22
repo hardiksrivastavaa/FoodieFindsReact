@@ -9,8 +9,8 @@ import Header from "./components/layouts/Header";
 import Footer from "./components/layouts/Footer";
 import Loading from "./components/layouts/Loading";
 import User from "./components/pages/User";
-import UserContext from "../utils/UserContext";
-import appStore from "../utils/appStore";
+import UserContext from "../utils/contexts/UserContext";
+import appStore from "../utils/store/appStore";
 
 // Lazy loading the Cart component to improve performance
 const Cart = lazy(() => import("./components/pages/Cart"));

@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import UserContext from "../../../utils/UserContext";
+import UserContext from "../../../utils/contexts/UserContext";
 
 const Header = () => {
 
